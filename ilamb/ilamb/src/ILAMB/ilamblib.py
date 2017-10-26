@@ -516,6 +516,8 @@ def FromNetCDF4(filename,variable_name,alternate_vars=[],t0=None,tf=None,group=N
         possible = [key for key in grp.variables if ((key   not in grp.dimensions) and
                                                      ("lat"     in key.lower()   ) and
                                                      ("_"   not in key           ))]
+        # ASB hard-coding to TLAT
+        possible = ['TLAT']
         if len(possible)==1:
             lat_name = possible[0]
         else:
@@ -525,6 +527,8 @@ def FromNetCDF4(filename,variable_name,alternate_vars=[],t0=None,tf=None,group=N
         possible = [key for key in grp.variables if ((key   not in grp.dimensions) and
                                                      ("lon"     in key.lower()   ) and
                                                      ("_"   not in key           ))]
+        # ASB hard-coding to TLONG
+        possible = ['TLONG']
         if len(possible)==1:
             lon_name = possible[0]
         else:
